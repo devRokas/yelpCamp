@@ -1,19 +1,27 @@
 <% include ../partials/header %>
+
 <div class="container">
     <div class="row">
-        <h1 style="text-align: center">Add New Comment to <%= campground.name %></h1>
-        <div style="width: 30%; margin: 25px auto;">
-            <form action="/campgrounds/<%= campground._id %>/comments" method="POST">
-                <div class="form-group">
-                    <input class="form-control" type="text" name="comment[text]" placeholder="text">
+        <div class="col-sm-9 col-md-7 col-lg-5 mx-auto">
+            <h1 style="text-align: center">Add New Comment to <%= campground.name %></h1>
+            <div class="card card-signin my-5">
+                <div class="card-body">
+                    <h5 class="card-title text-center">New comment</h5>
+                    <form class="form-signin" action="/campgrounds/<%= campground._id %>/comments" method="POST">
+                        <div class="form-label-group">
+                            <input name="comment[text]" type="text" class="form-control" placeholder="Comment" required
+                                autofocus>
+                            <br>
+                        </div>
+
+                        <button class="btn btn-lg btn-primary btn-block" type="submit">Submit</button>
+                    </form>
+                    <br>
+                    <a href="/campgrounds">Go Back</a>
                 </div>
-                <div class="form-group">
-                    <button class="btn btn-lg btn-primary btn-block">Submit!</button>
-                </div>
-            </form>
-            <a href="/campgrounds">Go Back</a>
+            </div>
         </div>
     </div>
 </div>
-<% include ../partials/footer %>
 
+<% include ../partials/footer %>
